@@ -1,51 +1,38 @@
 package com.practica;
 
-import com.practica.config.TestMongoConfig;
+import com.practica.controller.ProductoController;
 import com.practica.model.Producto;
-import com.practica.repository.ProductoRepository;
 import com.practica.service.ProductoService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.test.StepVerifier;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
-@AutoConfigureWebTestClient
+@WebFluxTest(ProductoController.class)
 @ActiveProfiles("test")
-@Import(TestMongoConfig.class)
 public class ProductoIntegrationTest {
 
     @Autowired
     private WebTestClient webTestClient;
 
     @MockBean
-    private ProductoRepository productoRepository;
-
-    @BeforeEach
-    void setUp() {
-        // No necesitamos limpiar la BD porque estamos usando un mock
-        // Configuramos el comportamiento del mock para cada prueba
-    }
+    private ProductoService productoService;  // Nota: Aquí estamos simulando el servicio, no el repositorio
 
     @Test
     void testCrearProducto() {
         Producto producto = new Producto(null, "Prueba API", 99.99);
         Producto productoGuardado = new Producto("1", "Prueba API", 99.99);
 
-        when(productoRepository.save(any(Producto.class))).thenReturn(Mono.just(productoGuardado));
+        when(productoService.crearProducto(any(Producto.class))).thenReturn(Mono.just(productoGuardado));
 
         webTestClient.post()
                 .uri("/api/productos")
@@ -63,7 +50,7 @@ public class ProductoIntegrationTest {
     void testObtenerProductoPorId() {
         Producto producto = new Producto("1", "Guardado", 123.0);
 
-        when(productoRepository.findById("1")).thenReturn(Mono.just(producto));
+        when(productoService.obtenerProductoPorId("1")).thenReturn(Mono.just(producto));
 
         webTestClient.get()
                 .uri("/api/productos/{id}", "1")
@@ -75,11 +62,28 @@ public class ProductoIntegrationTest {
 
     @Test
     void testEliminarProducto() {
-        when(productoRepository.deleteById(anyString())).thenReturn(Mono.empty());
+        when(productoService.eliminarProducto(anyString())).thenReturn(Mono.empty());
 
         webTestClient.delete()
                 .uri("/api/productos/{id}", "1")
                 .exchange()
                 .expectStatus().isNoContent();
+    }
+
+    // Podemos agregar un test para el método de listar productos también
+    @Test
+    void testListarProductos() {
+        Producto p1 = new Producto("1", "Producto A", 100.0);
+        Producto p2 = new Producto("2", "Producto B", 200.0);
+
+        when(productoService.listarProductos()).thenReturn(Flux.just(p1, p2));
+
+        webTestClient.get()
+                .uri("/api/productos")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(Producto.class)
+                .hasSize(2)
+                .contains(p1, p2);
     }
 }
