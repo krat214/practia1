@@ -1,15 +1,13 @@
 package com.practica;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 import org.springframework.test.context.ActiveProfiles;
 import com.practica.repository.ProductoRepository;
 
-@SpringBootTest
+@DataMongoTest
 @ActiveProfiles("test")
-@EnableReactiveMongoRepositories
 class DemoApplicationTests {
 
 	@MockBean

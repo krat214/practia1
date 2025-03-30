@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.practica.ProductoServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-03-30T23:12:53.122Z" hostname="MacBook-Air-de-Angel.local" time="0.056">
+<testsuite name="com.practica.ProductoServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-03-30T23:42:24.250Z" hostname="MacBook-Air-de-Angel.local" time="0.012">
   <properties/>
-  <testcase name="testListarProductos()" classname="com.practica.ProductoServiceTest" time="0.054"/>
+  <testcase name="testListarProductos()" classname="com.practica.ProductoServiceTest" time="0.01"/>
   <testcase name="testCrearProducto()" classname="com.practica.ProductoServiceTest" time="0.001"/>
   <testcase name="testObtenerProductoPorId()" classname="com.practica.ProductoServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

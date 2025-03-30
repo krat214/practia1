@@ -17,7 +17,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-@WebFluxTest(ProductoController.class)
+@WebFluxTest(controllers = ProductoController.class)
 @ActiveProfiles("test")
 public class ProductoIntegrationTest {
 
