@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.practica.ProductoIntegrationTest" tests="3" skipped="0" failures="3" errors="0" timestamp="2025-03-30T04:38:07.346Z" hostname="MacBook-Air-de-Angel.local" time="90.096">
+  <properties/>
+  <testcase name="testCrearProducto()" classname="com.practica.ProductoIntegrationTest" time="30.047">
+    <failure message="org.springframework.dao.DataAccessResourceFailureException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]" type="org.springframework.dao.DataAccessResourceFailureException">org.springframework.dao.DataAccessResourceFailureException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]
+	at app//org.springframework.data.mongodb.core.MongoExceptionTranslator.doTranslateException(MongoExceptionTranslator.java:97)
+	at app//org.springframework.data.mongodb.core.MongoExceptionTranslator.translateExceptionIfPossible(MongoExceptionTranslator.java:74)
+	at app//org.springframework.data.mongodb.core.ReactiveMongoTemplate.potentiallyConvertRuntimeException(ReactiveMongoTemplate.java:2768)
+	at app//org.springframework.data.mongodb.core.ReactiveMongoTemplate.lambda$translateException$99(ReactiveMongoTemplate.java:2751)
+	at app//reactor.core.publisher.Flux.lambda$onErrorMap$28(Flux.java:7318)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+	at app//reactor.core.publisher.MonoFlatMapMany$FlatMapManyInner.onError(MonoFlatMapMany.java:256)
+	at app//reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+	at app//reactor.core.publisher.Operators.error(Operators.java:198)
+	at app//reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+	at app//reactor.core.publisher.Mono.subscribe(Mono.java:4576)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+	at app//reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+	at app//reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+	at app//reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+	at app//reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+	at app//reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258)
+	at app//reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+	at app//com.mongodb.reactivestreams.client.internal.MongoOperationPublisher.lambda$sinkToCallback$37(MongoOperationPublisher.java:586)
+	at app//com.mongodb.reactivestreams.client.internal.OperationExecutorImpl.lambda$execute$7(OperationExecutorImpl.java:126)
+	at app//com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47)
+	at app//com.mongodb.internal.operation.AsyncOperationHelper.lambda$exceptionTransformingCallback$18(AsyncOperationHelper.java:360)
+	at app//com.mongodb.internal.async.function.AsyncCallbackSupplier.lambda$whenComplete$1(AsyncCallbackSupplier.java:97)
+	at app//com.mongodb.internal.async.function.RetryingAsyncCallbackSupplier$RetryingCallback.onResult(RetryingAsyncCallbackSupplier.java:121)
+	at app//com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47)
+	at app//com.mongodb.internal.operation.AsyncOperationHelper.lambda$withAsyncSuppliedResource$3(AsyncOperationHelper.java:134)
+	at app//com.mongodb.reactivestreams.client.internal.ClientSessionBinding$WrappingCallback.onResult(ClientSessionBinding.java:260)
+	at app//com.mongodb.reactivestreams.client.internal.ClientSessionBinding$WrappingCallback.onResult(ClientSessionBinding.java:250)
+	at app//com.mongodb.internal.binding.AsyncClusterBinding.lambda$getAsyncClusterBindingConnectionSource$1(AsyncClusterBinding.java:122)
+	at app//com.mongodb.internal.connection.BaseCluster$ServerSelectionRequest.onResult(BaseCluster.java:453)
+	at app//com.mongodb.internal.connection.BaseCluster.handleServerSelectionRequest(BaseCluster.java:315)
+	at app//com.mongodb.internal.connection.BaseCluster.access$700(BaseCluster.java:92)
+	at app//com.mongodb.internal.connection.BaseCluster$WaitQueueHandler.run(BaseCluster.java:508)
+	at java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104)
+		at reactor.core.publisher.Mono.block(Mono.java:1779)
+		at com.practica.ProductoIntegrationTest.setUp(ProductoIntegrationTest.java:26)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: com.mongodb.MongoTimeoutException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]
+	at app//com.mongodb.internal.connection.BaseCluster.logAndThrowTimeoutException(BaseCluster.java:427)
+	at app//com.mongodb.internal.connection.BaseCluster.lambda$handleServerSelectionRequest$4(BaseCluster.java:311)
+	at app//com.mongodb.internal.time.Timeout.lambda$onExistsAndExpired$16(Timeout.java:236)
+	at app//com.mongodb.internal.time.Timeout.lambda$run$10(Timeout.java:201)
+	at app//com.mongodb.internal.time.TimePoint.checkedCall(TimePoint.java:98)
+	at app//com.mongodb.internal.time.Timeout.call(Timeout.java:174)
+	at app//com.mongodb.internal.time.Timeout.run(Timeout.java:194)
+	at app//com.mongodb.internal.time.Timeout.onExistsAndExpired(Timeout.java:233)
+	at app//com.mongodb.internal.connection.BaseCluster.handleServerSelectionRequest(BaseCluster.java:310)
+	... 3 more
+</failure>
+  </testcase>
+  <testcase name="testObtenerProductoPorId()" classname="com.practica.ProductoIntegrationTest" time="30.026">
+    <failure message="org.springframework.dao.DataAccessResourceFailureException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]" type="org.springframework.dao.DataAccessResourceFailureException">org.springframework.dao.DataAccessResourceFailureException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]
+	at app//org.springframework.data.mongodb.core.MongoExceptionTranslator.doTranslateException(MongoExceptionTranslator.java:97)
+	at app//org.springframework.data.mongodb.core.MongoExceptionTranslator.translateExceptionIfPossible(MongoExceptionTranslator.java:74)
+	at app//org.springframework.data.mongodb.core.ReactiveMongoTemplate.potentiallyConvertRuntimeException(ReactiveMongoTemplate.java:2768)
+	at app//org.springframework.data.mongodb.core.ReactiveMongoTemplate.lambda$translateException$99(ReactiveMongoTemplate.java:2751)
+	at app//reactor.core.publisher.Flux.lambda$onErrorMap$28(Flux.java:7318)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+	at app//reactor.core.publisher.MonoFlatMapMany$FlatMapManyInner.onError(MonoFlatMapMany.java:256)
+	at app//reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+	at app//reactor.core.publisher.Operators.error(Operators.java:198)
+	at app//reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+	at app//reactor.core.publisher.Mono.subscribe(Mono.java:4576)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+	at app//reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+	at app//reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+	at app//reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+	at app//reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+	at app//reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258)
+	at app//reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+	at app//com.mongodb.reactivestreams.client.internal.MongoOperationPublisher.lambda$sinkToCallback$37(MongoOperationPublisher.java:586)
+	at app//com.mongodb.reactivestreams.client.internal.OperationExecutorImpl.lambda$execute$7(OperationExecutorImpl.java:126)
+	at app//com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47)
+	at app//com.mongodb.internal.operation.AsyncOperationHelper.lambda$exceptionTransformingCallback$18(AsyncOperationHelper.java:360)
+	at app//com.mongodb.internal.async.function.AsyncCallbackSupplier.lambda$whenComplete$1(AsyncCallbackSupplier.java:97)
+	at app//com.mongodb.internal.async.function.RetryingAsyncCallbackSupplier$RetryingCallback.onResult(RetryingAsyncCallbackSupplier.java:121)
+	at app//com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47)
+	at app//com.mongodb.internal.operation.AsyncOperationHelper.lambda$withAsyncSuppliedResource$3(AsyncOperationHelper.java:134)
+	at app//com.mongodb.reactivestreams.client.internal.ClientSessionBinding$WrappingCallback.onResult(ClientSessionBinding.java:260)
+	at app//com.mongodb.reactivestreams.client.internal.ClientSessionBinding$WrappingCallback.onResult(ClientSessionBinding.java:250)
+	at app//com.mongodb.internal.binding.AsyncClusterBinding.lambda$getAsyncClusterBindingConnectionSource$1(AsyncClusterBinding.java:122)
+	at app//com.mongodb.internal.connection.BaseCluster$ServerSelectionRequest.onResult(BaseCluster.java:453)
+	at app//com.mongodb.internal.connection.BaseCluster.handleServerSelectionRequest(BaseCluster.java:315)
+	at app//com.mongodb.internal.connection.BaseCluster.access$700(BaseCluster.java:92)
+	at app//com.mongodb.internal.connection.BaseCluster$WaitQueueHandler.run(BaseCluster.java:508)
+	at java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104)
+		at reactor.core.publisher.Mono.block(Mono.java:1779)
+		at com.practica.ProductoIntegrationTest.setUp(ProductoIntegrationTest.java:26)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: com.mongodb.MongoTimeoutException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]
+	at app//com.mongodb.internal.connection.BaseCluster.logAndThrowTimeoutException(BaseCluster.java:427)
+	at app//com.mongodb.internal.connection.BaseCluster.lambda$handleServerSelectionRequest$4(BaseCluster.java:311)
+	at app//com.mongodb.internal.time.Timeout.lambda$onExistsAndExpired$16(Timeout.java:236)
+	at app//com.mongodb.internal.time.Timeout.lambda$run$10(Timeout.java:201)
+	at app//com.mongodb.internal.time.TimePoint.checkedCall(TimePoint.java:98)
+	at app//com.mongodb.internal.time.Timeout.call(Timeout.java:174)
+	at app//com.mongodb.internal.time.Timeout.run(Timeout.java:194)
+	at app//com.mongodb.internal.time.Timeout.onExistsAndExpired(Timeout.java:233)
+	at app//com.mongodb.internal.connection.BaseCluster.handleServerSelectionRequest(BaseCluster.java:310)
+	... 3 more
+</failure>
+  </testcase>
+  <testcase name="testEliminarProducto()" classname="com.practica.ProductoIntegrationTest" time="30.019">
+    <failure message="org.springframework.dao.DataAccessResourceFailureException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]" type="org.springframework.dao.DataAccessResourceFailureException">org.springframework.dao.DataAccessResourceFailureException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]
+	at app//org.springframework.data.mongodb.core.MongoExceptionTranslator.doTranslateException(MongoExceptionTranslator.java:97)
+	at app//org.springframework.data.mongodb.core.MongoExceptionTranslator.translateExceptionIfPossible(MongoExceptionTranslator.java:74)
+	at app//org.springframework.data.mongodb.core.ReactiveMongoTemplate.potentiallyConvertRuntimeException(ReactiveMongoTemplate.java:2768)
+	at app//org.springframework.data.mongodb.core.ReactiveMongoTemplate.lambda$translateException$99(ReactiveMongoTemplate.java:2751)
+	at app//reactor.core.publisher.Flux.lambda$onErrorMap$28(Flux.java:7318)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+	at app//reactor.core.publisher.MonoFlatMapMany$FlatMapManyInner.onError(MonoFlatMapMany.java:256)
+	at app//reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+	at app//reactor.core.publisher.Operators.error(Operators.java:198)
+	at app//reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+	at app//reactor.core.publisher.Mono.subscribe(Mono.java:4576)
+	at app//reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+	at app//reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+	at app//reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+	at app//reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+	at app//reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+	at app//reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258)
+	at app//reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+	at app//com.mongodb.reactivestreams.client.internal.MongoOperationPublisher.lambda$sinkToCallback$37(MongoOperationPublisher.java:586)
+	at app//com.mongodb.reactivestreams.client.internal.OperationExecutorImpl.lambda$execute$7(OperationExecutorImpl.java:126)
+	at app//com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47)
+	at app//com.mongodb.internal.operation.AsyncOperationHelper.lambda$exceptionTransformingCallback$18(AsyncOperationHelper.java:360)
+	at app//com.mongodb.internal.async.function.AsyncCallbackSupplier.lambda$whenComplete$1(AsyncCallbackSupplier.java:97)
+	at app//com.mongodb.internal.async.function.RetryingAsyncCallbackSupplier$RetryingCallback.onResult(RetryingAsyncCallbackSupplier.java:121)
+	at app//com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47)
+	at app//com.mongodb.internal.operation.AsyncOperationHelper.lambda$withAsyncSuppliedResource$3(AsyncOperationHelper.java:134)
+	at app//com.mongodb.reactivestreams.client.internal.ClientSessionBinding$WrappingCallback.onResult(ClientSessionBinding.java:260)
+	at app//com.mongodb.reactivestreams.client.internal.ClientSessionBinding$WrappingCallback.onResult(ClientSessionBinding.java:250)
+	at app//com.mongodb.internal.binding.AsyncClusterBinding.lambda$getAsyncClusterBindingConnectionSource$1(AsyncClusterBinding.java:122)
+	at app//com.mongodb.internal.connection.BaseCluster$ServerSelectionRequest.onResult(BaseCluster.java:453)
+	at app//com.mongodb.internal.connection.BaseCluster.handleServerSelectionRequest(BaseCluster.java:315)
+	at app//com.mongodb.internal.connection.BaseCluster.access$700(BaseCluster.java:92)
+	at app//com.mongodb.internal.connection.BaseCluster$WaitQueueHandler.run(BaseCluster.java:508)
+	at java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104)
+		at reactor.core.publisher.Mono.block(Mono.java:1779)
+		at com.practica.ProductoIntegrationTest.setUp(ProductoIntegrationTest.java:26)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: com.mongodb.MongoTimeoutException: Timed out while waiting for a server that matches WritableServerSelector. Client view of cluster state is {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}]
+	at app//com.mongodb.internal.connection.BaseCluster.logAndThrowTimeoutException(BaseCluster.java:427)
+	at app//com.mongodb.internal.connection.BaseCluster.lambda$handleServerSelectionRequest$4(BaseCluster.java:311)
+	at app//com.mongodb.internal.time.Timeout.lambda$onExistsAndExpired$16(Timeout.java:236)
+	at app//com.mongodb.internal.time.Timeout.lambda$run$10(Timeout.java:201)
+	at app//com.mongodb.internal.time.TimePoint.checkedCall(TimePoint.java:98)
+	at app//com.mongodb.internal.time.Timeout.call(Timeout.java:174)
+	at app//com.mongodb.internal.time.Timeout.run(Timeout.java:194)
+	at app//com.mongodb.internal.time.Timeout.onExistsAndExpired(Timeout.java:233)
+	at app//com.mongodb.internal.connection.BaseCluster.handleServerSelectionRequest(BaseCluster.java:310)
+	... 3 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[2025-03-29T23:38:07.235-05:00  INFO 21667 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.practica.ProductoIntegrationTest]: ProductoIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-03-29T23:38:07.238-05:00  INFO 21667 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.practica.DemoApplication for test class com.practica.ProductoIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2025-03-29T23:38:07.247-05:00  INFO 21667 --- [    Test worker] com.practica.ProductoIntegrationTest     : Starting ProductoIntegrationTest using Java 17.0.14 with PID 21667 (started by angelrenteria in /Users/angelrenteria/Downloads/demo)
+2025-03-29T23:38:07.248-05:00  INFO 21667 --- [    Test worker] com.practica.ProductoIntegrationTest     : The following 1 profile is active: "test"
+2025-03-29T23:38:07.283-05:00  INFO 21667 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2025-03-29T23:38:07.285-05:00  INFO 21667 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 1 Reactive MongoDB repository interface.
+2025-03-29T23:38:07.299-05:00  INFO 21667 --- [    Test worker] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2025-03-29T23:38:07.301-05:00  INFO 21667 --- [    Test worker] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "aarch64", "version": "15.3.2"}, "platform": "Java/Amazon.com Inc./17.0.14+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=NettyTransportSettings{eventLoopGroup=io.netty.channel.nio.NioEventLoopGroup@43b45ce4, socketChannelClass=null, allocator=null, sslContext=null}, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@41f3aaf1, com.mongodb.Jep395RecordCodecProvider@741741d0, com.mongodb.KotlinCodecProvider@5f9f3e58]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='rs0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-03-29T23:38:07.302-05:00  INFO 21667 --- [localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.netty.NettyStream$OpenChannelFutureListener.lambda$operationComplete$1(NettyStream.java:534) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.Locks.lambda$withLock$0(Locks.java:35) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.Locks.checkedWithLock(Locks.java:62) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.Locks.withLock(Locks.java:56) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.Locks.withLock(Locks.java:34) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.netty.NettyStream$OpenChannelFutureListener.operationComplete(NettyStream.java:521) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.netty.NettyStream$OpenChannelFutureListener.operationComplete(NettyStream.java:504) ~[mongodb-driver-core-5.2.1.jar:na]
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:342) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.119.Final.jar:4.1.119.Final]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2025-03-29T23:38:07.345-05:00  INFO 21667 --- [    Test worker] com.practica.ProductoIntegrationTest     : Started ProductoIntegrationTest in 0.106 seconds (process running for 1.438)
+2025-03-29T23:38:07.369-05:00  INFO 21667 --- [    Test worker] org.mongodb.driver.cluster               : Waiting for server to become available for operation with ID 5. Remaining time: 29998 ms. Selector: WritableServerSelector, topology description: {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}].
+2025-03-29T23:38:37.396-05:00  INFO 21667 --- [    Test worker] org.mongodb.driver.cluster               : Waiting for server to become available for operation with ID 68. Remaining time: 29999 ms. Selector: WritableServerSelector, topology description: {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}].
+2025-03-29T23:39:07.430-05:00  INFO 21667 --- [    Test worker] org.mongodb.driver.cluster               : Waiting for server to become available for operation with ID 131. Remaining time: 29999 ms. Selector: WritableServerSelector, topology description: {type=REPLICA_SET, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:27017}, caused by {java.net.ConnectException: Connection refused}}].
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
