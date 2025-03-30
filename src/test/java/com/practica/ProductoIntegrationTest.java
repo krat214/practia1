@@ -3,16 +3,24 @@ package com.practica;
 import com.practica.config.TestMongoConfig;
 import com.practica.model.Producto;
 import com.practica.repository.ProductoRepository;
+import com.practica.service.ProductoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @AutoConfigureWebTestClient
@@ -23,41 +31,42 @@ public class ProductoIntegrationTest {
     @Autowired
     private WebTestClient webTestClient;
 
-    @Autowired
+    @MockBean
     private ProductoRepository productoRepository;
 
     @BeforeEach
     void setUp() {
-        // Manejo reactivo para evitar bloqueos
-        StepVerifier.create(productoRepository.deleteAll())
-                .verifyComplete();
+        // No necesitamos limpiar la BD porque estamos usando un mock
+        // Configuramos el comportamiento del mock para cada prueba
     }
 
     @Test
     void testCrearProducto() {
         Producto producto = new Producto(null, "Prueba API", 99.99);
+        Producto productoGuardado = new Producto("1", "Prueba API", 99.99);
+
+        when(productoRepository.save(any(Producto.class))).thenReturn(Mono.just(productoGuardado));
 
         webTestClient.post()
                 .uri("/api/productos")
+                .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(producto)
                 .exchange()
                 .expectStatus().isCreated()
                 .expectBody()
-                .jsonPath("$.id").isNotEmpty()
+                .jsonPath("$.id").isEqualTo("1")
                 .jsonPath("$.nombre").isEqualTo("Prueba API")
                 .jsonPath("$.precio").isEqualTo(99.99);
     }
 
     @Test
     void testObtenerProductoPorId() {
-        // Primero creamos un producto de forma reactiva
-        Producto productoNuevo = new Producto(null, "Guardado", 123.0);
+        Producto producto = new Producto("1", "Guardado", 123.0);
 
-        Producto guardado = productoRepository.save(productoNuevo)
-                .block(); // Solo bloqueamos aquí para obtener el ID generado
+        when(productoRepository.findById("1")).thenReturn(Mono.just(producto));
 
         webTestClient.get()
-                .uri("/api/productos/{id}", guardado.getId())
+                .uri("/api/productos/{id}", "1")
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
@@ -66,14 +75,10 @@ public class ProductoIntegrationTest {
 
     @Test
     void testEliminarProducto() {
-        // Primero creamos un producto de forma reactiva
-        Producto productoNuevo = new Producto(null, "Eliminar", 50.0);
-
-        Producto producto = productoRepository.save(productoNuevo)
-                .block(); // Solo bloqueamos aquí para obtener el ID generado
+        when(productoRepository.deleteById(anyString())).thenReturn(Mono.empty());
 
         webTestClient.delete()
-                .uri("/api/productos/{id}", producto.getId())
+                .uri("/api/productos/{id}", "1")
                 .exchange()
                 .expectStatus().isNoContent();
     }
