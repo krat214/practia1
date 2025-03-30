@@ -25,7 +25,7 @@ public class ProductoIntegrationTest {
     private WebTestClient webTestClient;
 
     @MockBean
-    private ProductoService productoService;  // Nota: Aquí estamos simulando el servicio, no el repositorio
+    private ProductoService productoService;
 
     @Test
     void testCrearProducto() {
@@ -70,7 +70,6 @@ public class ProductoIntegrationTest {
                 .expectStatus().isNoContent();
     }
 
-    // Podemos agregar un test para el método de listar productos también
     @Test
     void testListarProductos() {
         Producto p1 = new Producto("1", "Producto A", 100.0);
