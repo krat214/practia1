@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.practica.ProductoIntegrationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-03-30T23:42:24.127Z" hostname="MacBook-Air-de-Angel.local" time="0.121">
+<testsuite name="com.practica.ProductoIntegrationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-03-31T00:06:38.122Z" hostname="MacBook-Air-de-Angel.local" time="0.118">
   <properties/>
-  <testcase name="testListarProductos()" classname="com.practica.ProductoIntegrationTest" time="0.084"/>
-  <testcase name="testCrearProducto()" classname="com.practica.ProductoIntegrationTest" time="0.026"/>
+  <testcase name="testListarProductos()" classname="com.practica.ProductoIntegrationTest" time="0.082"/>
+  <testcase name="testCrearProducto()" classname="com.practica.ProductoIntegrationTest" time="0.025"/>
   <testcase name="testObtenerProductoPorId()" classname="com.practica.ProductoIntegrationTest" time="0.006"/>
-  <testcase name="testEliminarProducto()" classname="com.practica.ProductoIntegrationTest" time="0.003"/>
-  <system-out><![CDATA[2025-03-30T18:42:23.888-05:00  INFO 24548 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.practica.ProductoIntegrationTest]: ProductoIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-03-30T18:42:23.894-05:00  INFO 24548 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.practica.DemoApplication for test class com.practica.ProductoIntegrationTest
+  <testcase name="testEliminarProducto()" classname="com.practica.ProductoIntegrationTest" time="0.002"/>
+  <system-out><![CDATA[2025-03-30T19:06:37.992-05:00  INFO 24906 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.practica.ProductoIntegrationTest]: ProductoIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-03-30T19:06:37.998-05:00  INFO 24906 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.practica.DemoApplication for test class com.practica.ProductoIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -17,9 +17,9 @@
 
  :: Spring Boot ::                (v3.4.4)
 
-2025-03-30T18:42:23.906-05:00  INFO 24548 --- [    Test worker] com.practica.ProductoIntegrationTest     : Starting ProductoIntegrationTest using Java 17.0.14 with PID 24548 (started by angelrenteria in /Users/angelrenteria/Downloads/demo/practia1)
-2025-03-30T18:42:23.906-05:00  INFO 24548 --- [    Test worker] com.practica.ProductoIntegrationTest     : The following 1 profile is active: "test"
-2025-03-30T18:42:24.125-05:00  INFO 24548 --- [    Test worker] com.practica.ProductoIntegrationTest     : Started ProductoIntegrationTest in 0.23 seconds (process running for 5.473)
+2025-03-30T19:06:38.008-05:00  INFO 24906 --- [    Test worker] com.practica.ProductoIntegrationTest     : Starting ProductoIntegrationTest using Java 17.0.14 with PID 24906 (started by angelrenteria in /Users/angelrenteria/Downloads/demo/practia1)
+2025-03-30T19:06:38.008-05:00  INFO 24906 --- [    Test worker] com.practica.ProductoIntegrationTest     : The following 1 profile is active: "test"
+2025-03-30T19:06:38.120-05:00  INFO 24906 --- [    Test worker] com.practica.ProductoIntegrationTest     : Started ProductoIntegrationTest in 0.121 seconds (process running for 1.712)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

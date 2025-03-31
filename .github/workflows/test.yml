@@ -10,6 +10,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      CI: 'true'
+
     steps:
       - uses: actions/checkout@v3
 
@@ -23,4 +26,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Ejecutar pruebas
-        run: ./gradlew test --info
+        run: ./gradlew test
